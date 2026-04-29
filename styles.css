@@ -652,9 +652,9 @@ h1, h2, h3, h4 {
 
 @media (max-width: 768px) {
   .nav {
-    display: none;
+    display: flex;
     position: absolute;
-    top: 80px;
+    top: 100px;
     left: 0;
     right: 0;
     background: var(--bg-primary);
@@ -662,10 +662,17 @@ h1, h2, h3, h4 {
     padding: 24px;
     box-shadow: var(--shadow-md);
     border-bottom: 1px solid var(--border-color);
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
   }
   
   .nav.open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
   
   .mobile-menu-btn {

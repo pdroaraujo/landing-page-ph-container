@@ -40,17 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const entry = entries[0];
             if (entry.isIntersecting && !countStarted) {
                 countStarted = true;
-                let current = 0;
-                const duration = 2000; // 2 seconds
-                const stepTime = Math.abs(Math.floor(duration / targetNumber));
                 
-                const timer = setInterval(() => {
-                    current += 1;
-                    yearsStat.textContent = '+' + current;
-                    if (current >= targetNumber) {
-                        clearInterval(timer);
-                    }
-                }, stepTime);
+                // Aguarda a animação do CSS (reveal-up) para começar a contar
+                setTimeout(() => {
+                    let current = 0;
+                    const duration = 2000; // 2 seconds
+                    const stepTime = Math.abs(Math.floor(duration / targetNumber));
+                    
+                    const timer = setInterval(() => {
+                        current += 1;
+                        yearsStat.textContent = '+' + current;
+                        if (current >= targetNumber) {
+                            clearInterval(timer);
+                        }
+                    }, stepTime);
+                }, 400); // 400ms delay
             }
         }, { threshold: 0.5 });
         
