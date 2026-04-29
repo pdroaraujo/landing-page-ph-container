@@ -715,6 +715,11 @@ h1, h2, h3, h4 {
     text-align: center;
     gap: 32px;
     padding: 32px 24px;
+    background: linear-gradient(180deg, var(--brand-blue) 0%, #171752 100%);
+  }
+  
+  .cta-banner::before {
+    display: none;
   }
   
   .cta-banner .btn-primary {

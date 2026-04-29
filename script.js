@@ -70,11 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let startX;
         let scrollLeft;
         let scrollPos = 0;
-        let isHovered = false;
         let isDragging = false;
 
         function autoScroll() {
-            if (!isHovered && !isDragging) {
+            if (!isDragging) {
                 scrollPos += 1;
                 if (scrollPos >= marquee.scrollWidth / 2) {
                     scrollPos = 0;
@@ -95,12 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         marqueeWrapper.addEventListener('mouseleave', () => {
             isDown = false;
             isDragging = false;
-            isHovered = false;
             marqueeWrapper.style.cursor = 'grab';
-        });
-
-        marqueeWrapper.addEventListener('mouseenter', () => {
-            isHovered = true;
         });
 
         marqueeWrapper.addEventListener('mouseup', () => {
