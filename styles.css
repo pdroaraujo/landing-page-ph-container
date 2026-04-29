@@ -690,19 +690,20 @@ h1, h2, h3, h4 {
   .hero {
     padding: 140px 0 80px;
   }
-  
+
   .hero-title {
-    font-size: 32px;
+    font-size: clamp(24px, 7.5vw, 32px);
   }
   
   .title-pills-wrapper {
-    gap: 6px;
+    gap: 4px;
     margin-top: 4px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    white-space: nowrap;
   }
   
   .title-pill {
-    padding: 2px 12px;
+    padding: 2px 8px;
     border-radius: 8px;
   }
   
