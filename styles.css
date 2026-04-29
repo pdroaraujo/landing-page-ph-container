@@ -192,7 +192,17 @@ h1, h2, h3, h4 {
   width: 24px;
   height: 2px;
   background-color: var(--brand-blue);
-  transition: var(--transition);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Hero Section */
@@ -542,6 +552,50 @@ h1, h2, h3, h4 {
 /* Classes extras */
 .text-blue { color: var(--brand-blue); }
 .mb-5 { margin-bottom: 40px; }
+
+/* Marquee / Infinite Scroll */
+.marquee-wrapper {
+  overflow-x: auto;
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  cursor: grab;
+  scrollbar-width: none;
+}
+
+.marquee-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 60px;
+  padding-right: 60px;
+  align-items: center;
+}
+
+.company-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #B0B3B8; /* Cinza claro */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  transition: var(--transition);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.company-logo:hover {
+  opacity: 1;
+  color: var(--brand-blue);
+}
 
 
 
