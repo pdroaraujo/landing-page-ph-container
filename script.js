@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Aguarda a animação do CSS (reveal-up) para começar a contar
                 setTimeout(() => {
                     let current = 0;
-                    const duration = 2000; // 2 seconds
+                    const duration = 800; // 0.8 seconds (mais rápido)
                     const stepTime = Math.abs(Math.floor(duration / targetNumber));
                     
                     const timer = setInterval(() => {
