@@ -108,7 +108,21 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const x = e.pageX - marqueeWrapper.offsetLeft;
             const walk = (x - startX) * 2;
-            marqueeWrapper.scrollLeft = scrollLeft - walk;
+            
+            let newScrollLeft = scrollLeft - walk;
+            const halfWidth = marquee.scrollWidth / 2;
+            
+            if (newScrollLeft <= 0) {
+                newScrollLeft += halfWidth;
+                startX = e.pageX - marqueeWrapper.offsetLeft;
+                scrollLeft = newScrollLeft;
+            } else if (newScrollLeft >= halfWidth) {
+                newScrollLeft -= halfWidth;
+                startX = e.pageX - marqueeWrapper.offsetLeft;
+                scrollLeft = newScrollLeft;
+            }
+
+            marqueeWrapper.scrollLeft = newScrollLeft;
             scrollPos = marqueeWrapper.scrollLeft;
         });
 
@@ -129,7 +143,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isDown) return;
             const x = e.touches[0].pageX - marqueeWrapper.offsetLeft;
             const walk = (x - startX) * 2;
-            marqueeWrapper.scrollLeft = scrollLeft - walk;
+            
+            let newScrollLeft = scrollLeft - walk;
+            const halfWidth = marquee.scrollWidth / 2;
+            
+            if (newScrollLeft <= 0) {
+                newScrollLeft += halfWidth;
+                startX = e.touches[0].pageX - marqueeWrapper.offsetLeft;
+                scrollLeft = newScrollLeft;
+            } else if (newScrollLeft >= halfWidth) {
+                newScrollLeft -= halfWidth;
+                startX = e.touches[0].pageX - marqueeWrapper.offsetLeft;
+                scrollLeft = newScrollLeft;
+            }
+
+            marqueeWrapper.scrollLeft = newScrollLeft;
             scrollPos = marqueeWrapper.scrollLeft;
         }, {passive: true});
 

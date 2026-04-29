@@ -637,6 +637,10 @@ h1, h2, h3, h4 {
   transform: translateY(0);
 }
 
+.mobile-break {
+  display: none;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .bento-grid {
@@ -677,6 +681,10 @@ h1, h2, h3, h4 {
   
   .mobile-menu-btn {
     display: flex;
+  }
+  
+  .mobile-break {
+    display: block;
   }
   
   .hero {
